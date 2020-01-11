@@ -5,4 +5,5 @@ export interface IUser extends Document {
   avatarUrl: string, 
   followers: number,
   following: number,
+  deleted: boolean
 };

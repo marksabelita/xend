@@ -1,6 +1,6 @@
 import {BaseController} from '../../../src/controllers/BaseController';
 import  { User }  from '../../../src/schema/user';
-import testVar from '../../utils/variable'; 
+import { USER } from '../../utils/variable'; 
 import * as mongoose from 'mongoose';
 
 describe('Comments model', () => {
@@ -18,7 +18,6 @@ describe('Comments model', () => {
   });
 
   it('Should create, show and delete a user', async () => {
-    const { USER } = testVar
     const baseController = new BaseController('test', User);
     const data = {
       body: USER

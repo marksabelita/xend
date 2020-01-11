@@ -4,6 +4,19 @@
       {
         "type": "node",
         "request": "launch",
+        "name": "Launch Program",
+        "program": "${workspaceFolder}/node_modules/serverless/bin/serverless",
+        "skipFiles": [
+          "<node_internals>/**"
+        ],
+        "args": [
+          "offline",
+          "start" // You can use this argument to pass data to the function to help with the debug
+        ]
+      },
+      {
+        "type": "node",
+        "request": "launch",
         "name": "Serverless offline",
         "program": "${workspaceFolder}/node_modules/serverless/bin/serverless",
         "args": [

@@ -1,10 +1,10 @@
 import {BaseController} from './BaseController';
-import { User } from '../schema/user';
+import { Organization } from '../schema/organization';
 const ENV = (process.env.NODE_ENV) || 'local';
 
-export class UserController extends BaseController{
+export class OrganizationController extends BaseController{
   constructor() {
-    super(ENV, User);
+    super(ENV, Organization);
   }
 
   public async index(request, response){

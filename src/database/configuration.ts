@@ -15,9 +15,9 @@ const credentials =  {
 
 export async function DBConnect(env='local'){
   const { username, password, link } = credentials[env]; 
-  const TEST = `mongodb://${username}:${password}@${link}`
+  const URL = `mongodb://${username}:${password}@${link}`
   
-  return await mongoose.connect(TEST, {
+  return await mongoose.connect(URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,

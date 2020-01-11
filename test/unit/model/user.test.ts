@@ -1,6 +1,6 @@
 import  { User }  from '../../../src/schema/user';
 import { IUser } from '../../../src/interfaces/user';
-import testVar from '../../utils/variable';
+import { USER } from '../../utils/variable';
 import { DBConnect } from '../../../src/database/configuration';
 
 describe('User model', () => {
@@ -14,7 +14,6 @@ describe('User model', () => {
   });
 
   it('Should save a user', async () => {
-    const { USER } = testVar;
     const user: IUser = new User(USER);
     const spy = jest.spyOn(user, 'save');
     user.save();

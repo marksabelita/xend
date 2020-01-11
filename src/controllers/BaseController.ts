@@ -1,5 +1,6 @@
 import { Model } from 'mongoose';
 import { DBConnect } from '../database/configuration';
+import { rejects } from 'assert';
 
 export class BaseController {
 
@@ -27,14 +28,18 @@ export class BaseController {
   }
 
   public async storeData(request) {
-    return this.schema.create(request.body);
+    return new Promise((resolve, reject) => {
+      this.schema.create(request.body).then(data => {
+        resolve(data);
+      }).catch(err => reject(err))
+    })
   }
 
   public async updateData(request) {
     const { id } = request.params;
     const { body } = request;
     if (id) {
-      return this.schema.findByIdAndUpdate(id, body, {new: true});
+      return await this.schema.findByIdAndUpdate(id, body, {new: true});
     }
   }
 

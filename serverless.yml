@@ -6,20 +6,21 @@ plugins: # List of plugins of use on application
 service: node-typescript-serverless
 
 provider:
-  name: aws # Provider name, where the infrastructure has be created
-  runtime: nodejs8.10 # The node version where the lambda functions going to run
-  stage: dev # Control the environment of application
-  region: us-east-1 # Default region where the lambda functions running
+  name: aws
+  runtime: nodejs8.10 
+  stage: dev 
+  region: us-east-1 
 
 custom:
   serverless-offline:
-    port: 3003
+    port: 3005
 
-functions: # The array with definitions of lambda functions of the your application 
-  getUsers: # Lambda function name
-    handler: src/server.handler # The function name mapped of the application
-    events: # Array of events that call the function
-      - http: # Type of event, the http event selected, it's event is a endpoint mapped on api gateway
+functions:  
+  # User 
+  getUsers: 
+    handler: src/server.handler 
+    events: 
+      - http: 
           path: users
           method: get
   getUserById:
@@ -33,4 +34,42 @@ functions: # The array with definitions of lambda functions of the your applicat
     events:
       - http:
           path: users
+          method: post
+  #Organization
+  getOrganizations: 
+    handler: src/server.handler 
+    events: 
+      - http: 
+          path: organizations
+          method: get
+  getOrganizationById:
+    handler: src/server.handler
+    events:
+      - http:
+          path: organization/{id}
+          method: get
+  createOrganization:
+    handler: src/server.handler
+    events:
+      - http:
+          path: organizations
+          method: post
+  #Comments
+  getComments: 
+    handler: src/server.handler 
+    events: 
+      - http: 
+          path: comments
+          method: get
+  getCommentId:
+    handler: src/server.handler
+    events:
+      - http:
+          path: comment/{id}
+          method: get
+  createComment:
+    handler: src/server.handler
+    events:
+      - http:
+          path: comments
           method: post

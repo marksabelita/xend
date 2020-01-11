@@ -1,8 +1,7 @@
-import  { Comment }  from '../../../src/schema/comment';
+import { Comment }  from '../../../src/schema/comment';
 import { IComment } from '../../../src/interfaces/comment';
-import testVar from '../../utils/variable';
+import { COMMENT } from '../../utils/variable';
 import { DBConnect } from '../../../src/database/configuration';
-const { COMMENT } = testVar;
 
 describe('Comments model', () => {
   beforeAll(async () => {

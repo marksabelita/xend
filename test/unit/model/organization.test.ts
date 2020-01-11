@@ -1,9 +1,7 @@
 import { DBConnect } from '../../../src/database/configuration';
 import  { Organization }  from '../../../src/schema/organization';
 import { IOrganization } from '../../../src/interfaces/organization';
-import testVar from '../../utils/variable';
-
-const { ORGANIZATION } = testVar;
+import { ORGANIZATION } from '../../utils/variable';
 
 describe('Organization model', () => {
   beforeAll(async () => {
