@@ -1,8 +1,14 @@
 import {BaseController} from '../../../src/controllers/BaseController';
 import  { User }  from '../../../src/schema/user';
 import testVar from '../../utils/variable'; 
+import * as mongoose from 'mongoose';
 
 describe('Comments model', () => {
+
+  afterAll(() => {
+    mongoose.connection.db.dropDatabase();
+  })
+
   it('Should display list of user', async () => {
     const baseController = new BaseController('test', User);
     const userList = await baseController.getData();
