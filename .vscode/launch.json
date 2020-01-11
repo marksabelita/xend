@@ -1,0 +1,28 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "node",
+        "request": "launch",
+        "name": "Serverless offline",
+        "program": "${workspaceFolder}/node_modules/serverless/bin/serverless",
+        "args": [
+          "offline",
+          "start" // You can use this argument to pass data to the function to help with the debug
+        ]
+      },
+      {
+        "name": "Tests1",
+        "type": "node",
+        "request": "launch",
+        "stopOnEntry": false,
+        "program": "${workspaceRoot}/node_modules/jest/bin/jest",
+        "cwd": "${workspaceRoot}",
+        "args": [
+          "jest"
+        ],
+        "trace": true,
+        "runtimeExecutable": null
+      }
+    ]
+  }

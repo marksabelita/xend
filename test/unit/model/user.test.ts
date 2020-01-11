@@ -3,7 +3,7 @@ import { IUser } from '../../../src/interfaces/user';
 import testVar from '../../utils/variable';
 import { DBConnect } from '../../../src/database/configuration';
 
-xdescribe('User model', () => {
+describe('User model', () => {
   beforeAll(async () => {
     DBConnect('test');
   });

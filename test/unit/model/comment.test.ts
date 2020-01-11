@@ -4,7 +4,7 @@ import testVar from '../../utils/variable';
 import { DBConnect } from '../../../src/database/configuration';
 const { COMMENT } = testVar;
 
-xdescribe('Comments model', () => {
+describe('Comments model', () => {
   beforeAll(async () => {
     DBConnect('test');
   });

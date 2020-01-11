@@ -6,7 +6,7 @@
   "scripts": {
     "build": "node_modules/.bin/tsc -pretty -p .",
     "start": "serverless offline start",
-    "test": "jest --no-cache --coverage"
+    "test": "jest"
   },
   "author": "Mark",
   "license": "ISC",
@@ -17,6 +17,7 @@
     "@types/node": "^11.10.4",
     "handlebars": "^4.5.0",
     "jest": "^24.9.0",
+    "serverless": "^1.60.5",
     "ts-jest": "^24.3.0",
     "typescript": "^3.2.2"
   },
@@ -27,6 +28,7 @@
     "express": "^4.16.4",
     "mongoose": "^5.8.6",
     "mongoose-soft-deleted": "^1.0.1",
+    "mongoosejs-soft-delete": "^1.0.2",
     "reflect-metadata": "^0.1.13",
     "serverless-http": "^1.8.0",
     "serverless-offline": "^3.31.3",

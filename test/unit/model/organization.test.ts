@@ -5,8 +5,7 @@ import testVar from '../../utils/variable';
 
 const { ORGANIZATION } = testVar;
 
-xdescribe('Organization model', () => {
-
+describe('Organization model', () => {
   beforeAll(async () => {
     DBConnect('test');
   });

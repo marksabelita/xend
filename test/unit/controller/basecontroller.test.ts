@@ -32,7 +32,7 @@ describe('Comments model', () => {
         id: insertUserResult._id
       },
       body: {
-        followers: 3
+        followers: 3,
       }
     }
 
@@ -45,5 +45,8 @@ describe('Comments model', () => {
 
     const deleteUserResult = await baseController.deleteData(user);
     expect(deleteUserResult).toHaveProperty('_id');
+
+    const showUserResultUponDeletion = await baseController.showData(user);
+    expect(showUserResultUponDeletion).toBe(null);
   })
 });

@@ -14,4 +14,24 @@ export class UserController extends BaseController{
       console.log(error)
     }    
   }
+
+  
 }
+
+  // private catchErrors(validationError, response) {
+  //   const errorMessages = [];
+  //   for (var errName in validationError.errors) {
+  //     errorMessages.push(validationError.errors[errName].message)
+  //   }
+  //   response.status(422).send({
+  //     success: false,
+  //     errors: errorMessages,
+  //   });
+  // }
+
+  // private sendResponse(response, data) {
+  //   response.send({
+  //     'success': true,
+  //     'data': data,
+  //   });
+  // }
