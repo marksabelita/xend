@@ -1,7 +1,6 @@
 import * as Express from "express";
 import * as bodyParser from "body-parser";
 import * as cors from 'cors';
-import * as methodOverride from 'method-override';
 import routes from "./routes";
 
 class App {
