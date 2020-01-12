@@ -9,7 +9,7 @@ export class UserController extends BaseController{
 
   public async index(request, response){
     try {
-      const data = await this.getData();
+      const data = await this.getData({body: {}});
       this.sendResponse(response, data);
     } catch (error){
       this.catchErrors(response, error);
@@ -24,6 +24,21 @@ export class UserController extends BaseController{
       this.catchErrors(response, error);
     }
   }
+
+  // public async getUsersByOrganizationId(request, response) {
+  //   try {
+  //     const { organizationId } = request.params;  
+  //     const requestData = {
+  //       body: {
+  //         organizationId 
+  //       }
+  //     }
+  //     const data = await this.getData(requestData);
+  //     this.sendResponse(response, data);
+  //   } catch (error) {
+  //     this.catchErrors(response, error);
+  //   }
+  // }
 
   private sendResponse(response, data) {
     response.send({

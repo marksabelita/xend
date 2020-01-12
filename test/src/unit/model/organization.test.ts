@@ -1,7 +1,7 @@
-import { DBConnect } from '../../../src/database/configuration';
-import  { Organization }  from '../../../src/schema/organization';
-import { IOrganization } from '../../../src/interfaces/organization';
-import { ORGANIZATION } from '../../utils/variable';
+import { DBConnect } from '../../../../src/database/configuration';
+import  { Organization }  from '../../../../src/schema/organization';
+import { IOrganization } from '../../../../src/interfaces/organization';
+import { ORGANIZATION } from '../../../utils/variable';
 
 describe('Organization model', () => {
   beforeAll(async () => {

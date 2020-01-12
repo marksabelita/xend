@@ -4,7 +4,9 @@ import { IOrganization } from '../interfaces/organization';
 
 const OrganizationSchema: Schema = new Schema({
   name: { type: String , required: true },
-  owner: { type: Schema.Types.ObjectId, required: true },
+  owner: { type: Schema.Types.ObjectId, required: true, ref: 'User' },
+  members: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+  comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }],
   deleted: { type: Boolean, default: false }
 }, { timestamps: { createdAt: 'created_at' } });
 

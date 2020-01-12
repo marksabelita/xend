@@ -4,6 +4,6 @@ import { IOrganization } from './Organization';
 
 export interface IComment extends Document {
   message: { type: String , required: true },
-  owner: IUser['_id'],
-  organizationId: IOrganization['_id']
+  owner: IUser,
+  organizationId: IOrganization
 };

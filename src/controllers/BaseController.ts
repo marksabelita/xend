@@ -1,9 +1,7 @@
 import { Model } from 'mongoose';
 import { DBConnect } from '../database/configuration';
-import { rejects } from 'assert';
 
 export class BaseController {
-
   protected schema: Model<any>;
   protected ENV: string;
 
@@ -12,27 +10,38 @@ export class BaseController {
     DBConnect(env);
   }
 
-  public async getData(deleted = false) {
-    return this.schema.find({deleted});
+  public async getData(data, deleted = false) {
+    const { body } = data; 
+    if (body) {
+      const query = this.schema.find({...body, deleted});
+      if(data.select) { query.select(data.select); }
+      if(data.populate) { 
+        data.populate.forEach(element => {
+          query.populate(element);
+        });
+      }
+
+      return query;
+    }
   }
 
-  public async showData(request, deleted = false) {
-    return new Promise((resolve, reject) => {
-      const { id } = request.params; 
-      if (id) {
-        this.schema.findOne({_id: id, deleted}).then(data => {
-          resolve(data);
-        }).catch(err => reject(err));
+  public async showData(data, deleted = false) {
+    const { body } = data; 
+    if (body) {
+      const query = this.schema.findOne({...body, deleted});
+      if(data.select) { query.select(data.select); }
+      if(data.populate) { 
+        data.populate.forEach(element => {
+          query.populate(element);
+        });
       }
-    });
+
+      return query;
+    }
   }
 
   public async storeData(request) {
-    return new Promise((resolve, reject) => {
-      this.schema.create(request.body).then(data => {
-        resolve(data);
-      }).catch(err => reject(err))
-    })
+    return this.schema.create(request.body);
   }
 
   public async updateData(request) {
@@ -46,5 +55,10 @@ export class BaseController {
   public async  deleteData(request) {
     const { id } = request.params;
     return this.schema.findByIdAndUpdate(id, {deleted: true}, {new: true});
+  }
+
+  public async deleteBulk(request) {
+    const { params } = request;
+    return this.schema.updateMany(params, {deleted: true} );
   }
 }

@@ -1,7 +1,7 @@
-import { Comment }  from '../../../src/schema/comment';
-import { IComment } from '../../../src/interfaces/comment';
-import { COMMENT } from '../../utils/variable';
-import { DBConnect } from '../../../src/database/configuration';
+import { Comment }  from '../../../../src/schema/comment';
+import { IComment } from '../../../../src/interfaces/comment';
+import { COMMENT } from '../../../utils/variable';
+import { DBConnect } from '../../../../src/database/configuration';
 
 describe('Comments model', () => {
   beforeAll(async () => {

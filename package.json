@@ -6,7 +6,7 @@
   "scripts": {
     "build": "node_modules/.bin/tsc -pretty -p .",
     "start": "serverless offline start",
-    "test": "jest --detectOpenHandles"
+    "test": "jest --detectOpenHandles --forceExit"
   },
   "author": "Mark",
   "license": "ISC",

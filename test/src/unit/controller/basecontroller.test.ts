@@ -1,6 +1,6 @@
-import {BaseController} from '../../../src/controllers/BaseController';
-import  { User }  from '../../../src/schema/user';
-import { USER } from '../../utils/variable'; 
+import {BaseController} from '../../../../src/controllers/BaseController';
+import  { User }  from '../../../../src/schema/user';
+import { USER } from '../../../utils/variable'; 
 import * as mongoose from 'mongoose';
 
 describe('Comments model', () => {
@@ -11,7 +11,7 @@ describe('Comments model', () => {
 
   it('Should display list of user', async () => {
     const baseController = new BaseController('test', User);
-    const userList = await baseController.getData();
+    const userList = await baseController.getData({body: {}});
 
     const isResultArray = Array.isArray(userList);
     expect(isResultArray).toEqual(true);

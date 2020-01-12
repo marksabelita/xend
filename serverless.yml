@@ -3,17 +3,22 @@ plugins: # List of plugins of use on application
     - serverless-plugin-typescript-express
 
 # Project name on the infrastructure created
-service: node-typescript-serverless
+service: xend-git-exam
 
 provider:
   name: aws
   runtime: nodejs8.10 
   stage: dev 
   region: us-east-1 
+  deploymentBucket: yourdeploymentbucket
 
 custom:
   serverless-offline:
-    port: 3005
+    port: 3000
+  domains:
+    live: live.domain
+    release: release.domain
+    development: dev.domain
 
 functions:  
   # User 
@@ -23,12 +28,7 @@ functions:
       - http: 
           path: users
           method: get
-  getUserById:
-    handler: src/server.handler
-    events:
-      - http:
-          path: users/{id}
-          method: get
+
   createUser:
     handler: src/server.handler
     events:
@@ -36,6 +36,13 @@ functions:
           path: users
           method: post
   #Organization
+  joinOrganizationById:
+    handler: src/server.handler
+    events:
+      - http:
+          path: organization/join/{id}
+          method: post
+
   getOrganizations: 
     handler: src/server.handler 
     events: 
@@ -54,18 +61,33 @@ functions:
       - http:
           path: organizations
           method: post
+
+  getCommentsByOrganizationId: 
+    handler: src/server.handler 
+    events: 
+      - http: 
+          path: organization/{id}/comments
+          method: get
+
+  getUsersByOrganizationId: 
+    handler: src/server.handler 
+    events: 
+      - http: 
+          path: organization/{id}/users
+          method: get
   #Comments
+
+  deleteCommentsByOrganizationId: 
+    handler: src/server.handler 
+    events: 
+      - http: 
+          path: comments/organization/{id}
+          method: delete
   getComments: 
     handler: src/server.handler 
     events: 
       - http: 
           path: comments
-          method: get
-  getCommentId:
-    handler: src/server.handler
-    events:
-      - http:
-          path: comment/{id}
           method: get
   createComment:
     handler: src/server.handler

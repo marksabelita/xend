@@ -1,4 +1,4 @@
-import { DBConnect } from '../../../src/database/configuration';
+import { DBConnect } from '../../../../src/database/configuration';
 
 describe('Comments model', () => {
   it('Should throw validation errors', async () => {

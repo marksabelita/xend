@@ -7,12 +7,12 @@ export const USER = {
 };
 
 export const ORGANIZATION = {
-  name: 'Test Organization',
-  owner: '5e17ea67d696714d98b47fd9'
+  "name": "Test Organization",
+  "owner": "5e17ea67d696714d98b47fd9"
 }
 
 export const COMMENT = {
-  message: 'Test Comment',
-  owner: '5e17ea67d696714d98b47fd9',
-  organizationId: '4e12ea67d696714d98b47fd2'
+  "message": "Test Comment",
+  "owner": "5e17ea67d696714d98b47fd9",
+  "organizationId": "4e12ea67d696714d98b47fd2"
 }
